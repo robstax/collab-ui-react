@@ -25,10 +25,6 @@ class Button extends React.Component {
     /* eslint-enable no-console */
   }
 
-  componentWillUpdate (nextProps, nextState, nextContext) {
-    this.prevContext = {...nextContext};
-  }
-
   componentDidUpdate () {
     const { focusIndex } = this.context;
     const { index } = this.props;

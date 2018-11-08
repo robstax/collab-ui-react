@@ -29,15 +29,11 @@ class DatePickerCalendar extends React.Component {
     this.setDate(focus || selected || now());
   }
 
-  componentWillUpdate (nextProps, nextState, nextContext) {
-    this.prevContext = {...nextContext};
-  }
-
-  componentDidUpdate () {
-    const { focus } = this.context;
+  componentDidUpdate (prevProps, prevState) {
+    const { focus } = prevProps;
     if (
       focus &&
-      !isSameDay(this.prevContext.focus, focus)
+      !isSameDay(this.props.focus, focus)
     ) {
       this.setDate(focus);
     }

@@ -29,7 +29,7 @@ class DatePickerCalendar extends React.Component {
     this.setDate(focus || selected || now());
   }
 
-  componentDidUpdate (prevProps, prevState) {
+  componentDidUpdate (prevProps) {
     const { focus } = prevProps;
     if (
       focus &&
@@ -165,6 +165,7 @@ DatePickerCalendar.contextTypes = {
 
 DatePickerCalendar.propTypes = {
   locale: PropTypes.string,
+  focus: PropTypes.instanceOf(moment),
   maxDate: PropTypes.instanceOf(Date),
   minDate: PropTypes.instanceOf(Date),
   monthFormat: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
@@ -174,6 +175,7 @@ DatePickerCalendar.propTypes = {
 
 DatePickerCalendar.defaultProps = {
   locale: 'en',
+  focus: null,
   maxDate: null,
   minDate: null,
   monthFormat: 'MMMM YYYY',
